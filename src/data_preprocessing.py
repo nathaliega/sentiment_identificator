@@ -11,9 +11,9 @@ def convert_rating_to_sentiment(rating):
 
 
 def clean_text(text):
-    text = text.lower()  # Lowercase
-    text = re.sub(r'\s+', ' ', text)  # Remove multiple spaces
-    text = re.sub(r'[^\w\s]', '', text)  # Remove punctuation
+    text = text.lower()
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'[^\w\s]', '', text)
     emoji_pattern = re.compile("[\U0001F600-\U0001F64F\u2600-\u26FF\u2700-\u27BF\u2B50\u2934\u2B06\u2194\u25AA\u25AB\u2B06\u25FE\u274C\u274E\u2753\u2754\u2764\u2728\u263A\u263B]+")
     re.sub(emoji_pattern, '', text)
     return text.strip()
