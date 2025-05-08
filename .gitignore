@@ -1,3 +1,5 @@
 .venv
 _*
 data
+logs
+outputs
