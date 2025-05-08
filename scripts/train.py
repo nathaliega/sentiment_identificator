@@ -43,7 +43,6 @@ test_dataloader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False,
 model = RNN(len(vocab), EMBED_DIM, RNN_HIDDEN_SIZE, FC_HIDDEN_SIZE)
 
 loss_func = torch.nn.BCELoss()
-# optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-5)
 
 
