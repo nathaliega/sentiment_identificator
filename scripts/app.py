@@ -33,6 +33,32 @@ text_input = st.text_area("Type your review below:", height=200)
 
 if text_input:
     sentiment, prob = predict_sentiment(text_input)
-    st.markdown(f"### Sentiment: **{sentiment}**")
-    st.markdown(f"Confidence: `{prob:.4f}`")
+    # st.markdown(f"### Sentiment: **{sentiment}**")
+    # st.markdown(f"Confidence: `{prob:.4f}`")
 
+    # Display sentiment
+    st.markdown(f"### Sentiment: **{sentiment}**")
+
+    # Confidence bar
+    confidence_percent = int(prob * 100)
+    bar_color = "#4CAF50" if sentiment == "Positive" else "#F44336"
+    st.markdown(
+        f"""
+        <div style="margin-top: 10px;">
+            <div style="font-weight: bold;">Confidence: {prob:.4f}</div>
+            <div style="background-color: #ddd; border-radius: 10px; height: 25px; width: 100%;">
+                <div style="
+                    width: {confidence_percent}%;
+                    background-color: {bar_color};
+                    height: 100%;
+                    border-radius: 10px;
+                    text-align: center;
+                    color: white;
+                    line-height: 25px;">
+                    {confidence_percent}%
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
